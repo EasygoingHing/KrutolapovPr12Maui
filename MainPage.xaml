@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KrutolapovPr12.MainPage" Title="Главная" >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Array x:Key="chelik" Type="{x:Type x:String}">
+                <x:String>Анкета 1</x:String>
+                <x:String>Анкета 2</x:String>
+                <x:String>Анкета 3</x:String>
+                <x:String>Анкета 4</x:String>
+                <x:String>Анкета 5</x:String>
+            </x:Array>            
+        </ResourceDictionary>        
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="10">
+            <Label x:Name="lbText" FontSize="18" HorizontalTextAlignment="Center"/>
+            <ListView x:Name="lvAnkenataList"
+                      ItemsSource="{StaticResource Key=chelik}" ItemSelected="lvAnkenataList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding FIO}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Spacing="10">
+                <Button x:Name="btnOpenPage" Text="Подробнее" IsEnabled="False" Clicked="btnOpenPage_Clicked"/>
+                <Button x:Name="btnAdd" Text="Добавить" Clicked="btnAdd_Clicked"/>
+                <Button x:Name="btnEdit" Text="Редактировать" Clicked="btnEdit_Clicked"/>
+                <Button x:Name="btnRemove" Text="Удалить" Clicked="btnRemove_Clicked"/>
+                <Button x:Name="btnLoad" Clicked="btnLoad_Clicked" Text="Загрузить"/>
+                <Button x:Name="btnSave" Text="Сохранить" Clicked="btnSave_Clicked"/>
+                <Button x:Name="btnOpen" Text="Открыть" Clicked="btnOpen_Clicked"/>
+            </StackLayout>            
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
